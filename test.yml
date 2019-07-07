@@ -1,0 +1,30 @@
+- hosts: h-docker
+  tasks:
+    - name: "Find docker binary"
+      find:
+        path: /usr/bin
+        patterns: docker*
+      register: docker_binary
+
+####################################################
+
+    - name: "Print docker_binary with parameter var"
+      debug:
+        var: docker_binary
+
+    - name: "Print docker_binary with parameter msg"
+      debug:
+        msg: "{{ docker_binary }}"
+
+####################################################
+
+    - name: "Print docker_binary.files with parameter var"
+      debug:
+        var: docker_binary.files
+
+    - name: "Print docker_binary.file with parameter msg"
+      debug:
+        msg: "{{ docker_binary.files }}"
+
+
+
